@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
 import { Layout } from './components/Layout'
 import { Seo } from './components/Seo'
-import { Home } from './pages/Home'
+import Home from './pages/Home'
 
 function ComingSoon({ title }) {
   return (
