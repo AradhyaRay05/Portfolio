@@ -1,47 +1,83 @@
-import React from 'react'
-import { FadeIn, AnimatedText } from '../components/ui'
+import React from "react";
+import { FadeIn } from "../components/ui";
 
-const aboutText =
-  "I'm Aradhya — a Computer Science student at The Neotia University, Kolkata, specializing in Artificial Intelligence and Machine Learning. Over the past two years, I've worked across AI engineering, web development, data analytics, and cybersecurity through multiple internships. I was selected for the Grand Finale of Smart India Hackathon 2025 and placed 2nd at PARIKALPANA's Software Hackathon. I build tools that tackle real challenges — from predicting diabetes risk to recommending crops for farmers. When I'm not writing code, I contribute to open-source projects and explore new ways to make technology more accessible."
+const focusAreas = [
+  "AI/ML model development",
+  "Full-stack product engineering",
+  "Data analysis and visualization",
+  "Cybersecurity fundamentals",
+  "Open-source collaboration",
+  "Hackathon problem solving",
+];
 
 const AboutSection: React.FC = () => {
   return (
     <section
-      className="min-h-[80vh] flex flex-col items-center justify-center relative px-5 sm:px-8 md:px-10 py-20 sm:py-24 md:py-32"
+      className="relative px-5 py-20 sm:px-8 sm:py-24 md:px-10 md:py-32"
       id="about"
     >
-      {/* Content */}
-      <div className="flex flex-col items-center gap-10 sm:gap-14 md:gap-16 z-10 max-w-4xl mx-auto">
+      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
         <FadeIn delay={0} y={40}>
-          <h2
-            className="hero-heading font-black uppercase leading-none tracking-tight text-center"
-            style={{ fontSize: 'clamp(3rem, 10vw, 120px)' }}
-          >
-            About me
-          </h2>
-        </FadeIn>
-
-        <AnimatedText
-          text={aboutText}
-          className="text-[#D7E2EA] font-medium text-center leading-relaxed max-w-[640px]"
-          style={{ fontSize: 'clamp(1rem, 1.8vw, 1.3rem)' }}
-        />
-
-        <FadeIn delay={0.2} y={20}>
-          <div className="flex flex-wrap gap-3 justify-center">
-            {['AI/ML Engineering', 'Full-Stack Development', 'Data Analytics', 'Open Source', 'Cybersecurity'].map((tag) => (
-              <span
-                key={tag}
-                className="text-[#D7E2EA]/60 border border-[#D7E2EA]/20 rounded-full px-5 py-2 text-xs sm:text-sm font-medium uppercase tracking-wider"
-              >
-                {tag}
-              </span>
-            ))}
+          <div className="lg:sticky lg:top-24">
+            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.28em] text-[#D7E2EA]/35">
+              About
+            </p>
+            <h2 className="hero-heading section-heading section-heading--display max-w-3xl uppercase">
+              Built around real problems
+            </h2>
           </div>
         </FadeIn>
+
+        <div className="space-y-6">
+          <FadeIn delay={0.08} y={28}>
+            <p className="text-pretty text-xl font-light leading-relaxed text-[#D7E2EA]/78 sm:text-2xl">
+              I&apos;m Aradhya Ray, a Computer Science & Engineering student
+              specializing in Artificial Intelligence and Machine Learning at
+              The Neotia University, Kolkata. My work sits at the intersection
+              of software engineering, applied machine learning, and practical
+              problem solving.
+            </p>
+          </FadeIn>
+          <FadeIn delay={0.16} y={24}>
+            <p className="text-base font-light leading-relaxed text-[#D7E2EA]/58 sm:text-lg">
+              Through internships at Edunet Foundation, Xeta Labs, Edulyt India,
+              WEBEL, Dataspace Academy, and Emertxe, I&apos;ve worked across
+              full-stack development, NLP, data cleaning, Linux systems,
+              cybersecurity, and IoT foundations. The common thread is building
+              systems that are useful beyond a classroom demo: quiz generation
+              platforms, autocomplete models, business dashboards, ML risk
+              predictors, and agricultural recommendation tools.
+            </p>
+          </FadeIn>
+          <FadeIn delay={0.24} y={24}>
+            <p className="text-base font-light leading-relaxed text-[#D7E2EA]/58 sm:text-lg">
+              Hackathons and open source have shaped how I work. Being selected
+              for the Smart India Hackathon 2025 Grand Finale, participating in
+              Bharatiya Antariksh Hackathon 2025, and taking part in national AI
+              and software challenges pushed me to communicate clearly, ship
+              under constraints, and turn ambiguous problems into working
+              prototypes. I&apos;m continuing to grow as an engineer who can
+              connect models, data, interfaces, and user needs into reliable
+              products.
+            </p>
+          </FadeIn>
+
+          <FadeIn delay={0.32} y={20}>
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+              {focusAreas.map((item) => (
+                <div
+                  key={item}
+                  className="rounded-2xl border border-[#D7E2EA]/10 bg-[#D7E2EA]/[0.035] px-4 py-3 text-sm text-[#D7E2EA]/66"
+                >
+                  {item}
+                </div>
+              ))}
+            </div>
+          </FadeIn>
+        </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default AboutSection
+export default AboutSection;

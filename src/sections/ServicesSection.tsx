@@ -1,79 +1,54 @@
-import React from 'react'
-import { FadeIn } from '../components/ui'
+import React from "react";
+import { FadeIn } from "../components/ui";
 
-const services = [
+const focus = [
   {
-    num: '01',
-    name: '3D Modeling',
-    desc: 'Creation of detailed objects, characters, or environments tailored to specific client needs, ideal for games, products, and visualizations.',
+    num: "01",
+    name: "Applied AI & ML",
+    desc: "Building prediction systems, NLP prototypes, and deployed Streamlit tools around healthcare, agriculture, finance, education, and sustainability problems.",
   },
   {
-    num: '02',
-    name: 'Rendering',
-    desc: 'High-quality, photorealistic renders that showcase designs with custom lighting, textures, and materials to bring concepts to life.',
+    num: "02",
+    name: "Full-stack Engineering",
+    desc: "Designing React interfaces, REST APIs, Node/Express services, and MongoDB-backed workflows for practical products such as Quizora.",
   },
   {
-    num: '03',
-    name: 'Motion Design',
-    desc: 'Dynamic animations and motion graphics that add energy and storytelling to brands, products, and digital experiences.',
+    num: "03",
+    name: "Data Analysis",
+    desc: "Cleaning, validating, visualizing, and interpreting datasets with Python, Pandas, NumPy, Excel, and plotting libraries.",
   },
   {
-    num: '04',
-    name: 'Branding',
-    desc: 'Crafting cohesive visual identities — from logos to full brand systems — that communicate a clear and memorable presence.',
+    num: "04",
+    name: "Security-aware Development",
+    desc: "Applying cybersecurity internship learnings from VAPT, OWASP, and tooling such as Nmap, Burp Suite, Wireshark, and SQLmap.",
   },
-  {
-    num: '05',
-    name: 'Web Design',
-    desc: 'Designing clean, modern, and conversion-focused websites with attention to layout, typography, and user experience.',
-  },
-]
+];
 
 const ServicesSection: React.FC = () => {
   return (
     <section
-      className="bg-white px-5 sm:px-8 md:px-10 py-20 sm:py-24 md:py-32"
-      style={{ borderRadius: '40px 40px 0 0' }}
-      id="services"
+      className="bg-[#0C0C0C] px-5 py-20 sm:px-8 sm:py-24 md:px-10 md:py-32"
+      id="engineering-focus"
     >
-      <div className="sm:rounded-t-[50px] md:rounded-t-[60px]">
+      <div className="mx-auto max-w-5xl">
         <FadeIn delay={0} y={40}>
-          <h2
-            className="font-black uppercase text-center text-[#0C0C0C] leading-none mb-16 sm:mb-20 md:mb-28"
-            style={{ fontSize: 'clamp(3rem, 12vw, 160px)' }}
-          >
-            Services
+          <h2 className="hero-heading section-heading section-heading--wide text-center uppercase">
+            Engineering Focus
           </h2>
         </FadeIn>
-
-        <div className="max-w-5xl mx-auto">
-          {services.map((service, i) => (
-            <FadeIn key={service.num} delay={i * 0.1} y={30}>
-              <div
-                className="flex items-start gap-6 sm:gap-8 md:gap-12 py-8 sm:py-10 md:py-12"
-                style={{
-                  borderBottom: '1px solid rgba(12, 12, 12, 0.15)',
-                  ...(i === 0 ? { borderTop: '1px solid rgba(12, 12, 12, 0.15)' } : {}),
-                }}
-              >
-                <span
-                  className="font-black text-[#0C0C0C] leading-none flex-shrink-0"
-                  style={{ fontSize: 'clamp(3rem, 10vw, 140px)' }}
-                >
-                  {service.num}
+        <div className="mt-14 space-y-0">
+          {focus.map((item, i) => (
+            <FadeIn key={item.num} delay={i * 0.08} y={25}>
+              <div className="grid gap-4 border-t border-[#D7E2EA]/10 py-7 last:border-b sm:grid-cols-[0.18fr_0.82fr] sm:py-9">
+                <span className="text-4xl font-black leading-none text-[#D7E2EA]/14 sm:text-6xl">
+                  {item.num}
                 </span>
-                <div className="flex flex-col justify-center pt-2 sm:pt-4 md:pt-6">
-                  <span
-                    className="font-medium uppercase text-[#0C0C0C]"
-                    style={{ fontSize: 'clamp(1rem, 2.2vw, 2.1rem)' }}
-                  >
-                    {service.name}
-                  </span>
-                  <p
-                    className="font-light leading-relaxed max-w-2xl text-[#0C0C0C] opacity-60 mt-2"
-                    style={{ fontSize: 'clamp(0.85rem, 1.6vw, 1.25rem)' }}
-                  >
-                    {service.desc}
+                <div>
+                  <h3 className="text-xl font-semibold uppercase tracking-tight text-[#D7E2EA] sm:text-2xl">
+                    {item.name}
+                  </h3>
+                  <p className="mt-2 max-w-3xl text-sm font-light leading-relaxed text-[#D7E2EA]/58 sm:text-base">
+                    {item.desc}
                   </p>
                 </div>
               </div>
@@ -82,7 +57,7 @@ const ServicesSection: React.FC = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default ServicesSection
+export default ServicesSection;

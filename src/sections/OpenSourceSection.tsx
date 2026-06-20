@@ -1,92 +1,145 @@
-import React from 'react'
-import { FadeIn } from '../components/ui'
+import React from "react";
+import { FadeIn } from "../components/ui";
 
 interface Contribution {
-  icon: string
-  project: string
-  desc: string
-  type: string
-  link?: string
+  project: string;
+  desc: string;
+  type: string;
+  link?: string;
 }
 
-const contributions: Contribution[] = [
+const programs: Contribution[] = [
   {
-    icon: '🗺️',
-    project: 'Nominatim (OpenStreetMap)',
-    desc: 'Contributed to the widely-used open-source geocoding engine that powers location search across millions of applications worldwide.',
-    type: 'Fork & Contribute',
-    link: 'https://github.com/AradhyaRay05/Nominatim',
+    project: "GirlScript Summer of Code (GSSoC) 2026",
+    desc: "Open-source program participation focused on contributing to community projects through issues, pull requests, collaboration, and documentation-driven workflows.",
+    type: "Open Source Program",
   },
   {
-    icon: '🎓',
-    project: 'Stanford Code in Place',
-    desc: 'Completed the Stanford University program — an introductory Python course taught by Stanford CS faculty to a global cohort.',
-    type: 'Program Participant',
-    link: 'https://github.com/AradhyaRay05/Code-In-Place-Final-Project',
+    project: "GirlScript Summer of Code (GSSoC) 2025",
+    desc: "Participated in the GSSoC ecosystem to practice real-world contribution workflows and collaborate on public repositories.",
+    type: "Open Source Program",
   },
   {
-    icon: '📊',
-    project: '20+ Open-Source ML Tools',
-    desc: 'Built and publicly deployed over 20 machine learning applications on Streamlit — all open source with full code on GitHub.',
-    type: 'Project Author',
-    link: 'https://github.com/AradhyaRay05?tab=repositories',
+    project: "Nexus Spring of Code (NSoC)",
+    desc: "Open-source contribution program experience focused on learning maintainers’ expectations, understanding codebases, and contributing in public.",
+    type: "Open Source Program",
+  },
+];
+
+const repositories: Contribution[] = [
+  {
+    project: "Nominatim / OpenStreetMap",
+    desc: "Worked with the open-source geocoding/search ecosystem that powers location search on OpenStreetMap data.",
+    type: "Open Source Contribution",
+    link: "https://github.com/AradhyaRay05/Nominatim",
   },
   {
-    icon: '🤝',
-    project: 'Community Engagement',
-    desc: 'Active GitHub contributor with 500+ LinkedIn connections, engaging with the developer community through discussions, code reviews, and knowledge sharing.',
-    type: 'Community',
-    link: 'https://github.com/AradhyaRay05',
+    project: "AgriTech",
+    desc: "Contributed to an AI-powered agriculture platform covering crop recommendations, yield prediction, disease detection, and collaborative farmer tools.",
+    type: "Forked Contribution",
+    link: "https://github.com/AradhyaRay05/AgriTech",
   },
-]
+  {
+    project: "College Daddy",
+    desc: "Contributed to a student-focused academic toolkit for CGPA/internal marks calculation, semester notes, and exam productivity workflows.",
+    type: "Forked Contribution",
+    link: "https://github.com/AradhyaRay05/College_daddy",
+  },
+  {
+    project: "UI-Verse",
+    desc: "Explored and contributed within a component-library style open-source project focused on reusable UI patterns.",
+    type: "Forked Contribution",
+    link: "https://github.com/AradhyaRay05/UI-Verse",
+  },
+  {
+    project: "AnimateItNow",
+    desc: "Participated in an animation-focused frontend open-source project, strengthening HTML/CSS/JavaScript contribution workflows.",
+    type: "Forked Contribution",
+    link: "https://github.com/AradhyaRay05/AnimateItNow",
+  },
+];
 
 const OpenSourceSection: React.FC = () => {
   return (
-    <section className="bg-[#0C0C0C] px-5 sm:px-8 md:px-10 py-20 sm:py-24 md:py-32" id="opensource">
-      <div className="max-w-4xl mx-auto">
+    <section
+      className="bg-[#0C0C0C] px-5 py-20 sm:px-8 sm:py-24 md:px-10 md:py-32"
+      id="opensource"
+    >
+      <div className="mx-auto max-w-6xl">
         <FadeIn delay={0} y={40}>
-          <h2
-            className="hero-heading font-black uppercase text-center leading-none mb-6"
-            style={{ fontSize: 'clamp(2.5rem, 8vw, 100px)' }}
-          >
+          <p className="mb-4 text-center text-sm font-semibold uppercase tracking-[0.22em] text-[#D7E2EA]/58">
+            Community work
+          </p>
+          <h2 className="hero-heading section-heading section-heading--wide text-center uppercase">
             Open Source
           </h2>
-          <p className="text-[#D7E2EA]/40 text-center text-sm sm:text-base font-light mb-14 sm:mb-18">
-            Contributing to the community that taught me to code
+          <p className="mx-auto mt-5 max-w-2xl text-center text-sm font-light leading-relaxed text-[#D7E2EA]/48 sm:text-base">
+            Public contribution practice through open-source programs, forked
+            projects, issues, repository exploration, and community
+            collaboration.
           </p>
         </FadeIn>
 
-        <div className="space-y-4 sm:space-y-5">
-          {contributions.map((c, i) => (
-            <FadeIn key={c.project} delay={i * 0.08} y={20}>
-              <div className="bg-[#D7E2EA]/[0.03] border border-[#D7E2EA]/10 rounded-xl p-5 sm:p-6
-                hover:border-[#D7E2EA]/25 hover:bg-[#D7E2EA]/[0.06] transition-all duration-200
-                flex items-start gap-4">
-                <span className="text-2xl flex-shrink-0 mt-0.5">{c.icon}</span>
-                <div className="flex-1 min-w-0">
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 sm:gap-3 mb-1.5">
-                    <h3 className="text-[#D7E2EA] font-semibold text-sm sm:text-base">{c.project}</h3>
-                    <span className="text-[#D7E2EA]/25 text-xs font-medium uppercase tracking-wider flex-shrink-0">{c.type}</span>
+        <div className="mt-14 grid grid-cols-1 gap-5 lg:grid-cols-[0.9fr_1.1fr]">
+          <FadeIn delay={0.08} y={24}>
+            <div className="h-full rounded-3xl border border-[#D7E2EA]/10 bg-[#D7E2EA]/[0.035] p-5 sm:p-6">
+              <h3 className="text-xl font-semibold text-[#D7E2EA]">Programs</h3>
+              <div className="mt-5 space-y-4">
+                {programs.map((program) => (
+                  <div
+                    key={program.project}
+                    className="rounded-2xl border border-[#D7E2EA]/10 bg-[#0C0C0C]/35 p-4"
+                  >
+                    <span className="text-sm font-semibold uppercase tracking-[0.14em] text-purple-200/85">
+                      {program.type}
+                    </span>
+                    <h4 className="mt-2 text-base font-semibold text-[#D7E2EA]">
+                      {program.project}
+                    </h4>
+                    <p className="mt-2 text-[0.95rem] font-light leading-relaxed text-[#D7E2EA]/68">
+                      {program.desc}
+                    </p>
                   </div>
-                  <p className="text-[#D7E2EA]/45 text-xs sm:text-sm font-light leading-relaxed">{c.desc}</p>
-                </div>
-                {c.link && (
+                ))}
+              </div>
+            </div>
+          </FadeIn>
+
+          <FadeIn delay={0.14} y={24}>
+            <div className="h-full rounded-3xl border border-[#D7E2EA]/10 bg-[#D7E2EA]/[0.035] p-5 sm:p-6">
+              <h3 className="text-xl font-semibold text-[#D7E2EA]">
+                Repositories
+              </h3>
+              <div className="mt-5 grid gap-4 sm:grid-cols-2">
+                {repositories.map((repo) => (
                   <a
-                    href={c.link}
+                    key={repo.project}
+                    href={repo.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[#D7E2EA]/30 hover:text-[#D7E2EA] transition-colors text-sm flex-shrink-0"
+                    className="group rounded-2xl border border-[#D7E2EA]/10 bg-[#0C0C0C]/35 p-4 transition hover:border-[#D7E2EA]/30 hover:bg-[#D7E2EA]/[0.055]"
                   >
-                    ↗
+                    <span className="text-sm font-semibold uppercase tracking-[0.14em] text-[#D7E2EA]/58">
+                      {repo.type}
+                    </span>
+                    <h4 className="mt-2 text-base font-semibold text-[#D7E2EA] group-hover:text-white">
+                      {repo.project}
+                    </h4>
+                    <p className="mt-2 text-[0.95rem] font-light leading-relaxed text-[#D7E2EA]/68">
+                      {repo.desc}
+                    </p>
+                    <span className="mt-4 inline-block text-sm font-semibold uppercase tracking-[0.13em] text-[#D7E2EA]/72 group-hover:text-[#D7E2EA]">
+                      View repo ↗
+                    </span>
                   </a>
-                )}
+                ))}
               </div>
-            </FadeIn>
-          ))}
+            </div>
+          </FadeIn>
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default OpenSourceSection
+export default OpenSourceSection;

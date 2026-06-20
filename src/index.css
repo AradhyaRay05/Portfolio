@@ -5,21 +5,138 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 html,
 body,
 #root {
-  background: #0C0C0C;
-  font-family: 'Kanit', sans-serif;
+    background: #0c0c0c;
+    font-family: "Kanit", sans-serif;
 }
 
 .hero-heading {
-  background: linear-gradient(180deg, #646973 0%, #BBCCD7 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+    background: linear-gradient(180deg, #7c8793 0%, #c7d4de 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    word-spacing: 0.05em;
+    line-height: 1.06;
+    text-wrap: balance;
+}
+
+.hero-title {
+    max-width: 980px;
+    font-size: clamp(3rem, 10vw, 8.25rem);
+    line-height: 0.96;
+    letter-spacing: -0.018em;
+}
+
+.section-heading {
+    display: block;
+    font-size: clamp(2.35rem, 7vw, 5.4rem);
+    line-height: 1.06;
+    letter-spacing: -0.01em;
+}
+
+.section-heading--display {
+    font-size: clamp(2.7rem, 8vw, 6.2rem);
+}
+
+.section-heading--wide {
+    font-size: clamp(2.15rem, 6vw, 4.9rem);
+}
+
+/* Keep metadata, pills, filters, and card details readable on the dark UI. */
+section .text-xs {
+    font-size: 0.8125rem;
+    line-height: 1.45;
+}
+
+section .text-\[11px\] {
+    font-size: 0.78rem;
+    line-height: 1.4;
+}
+
+section .text-\[10px\] {
+    font-size: 0.72rem;
+    line-height: 1.35;
+}
+
+section .tracking-\[0\.28em\] {
+    letter-spacing: 0.22em;
+}
+
+section .tracking-\[0\.22em\] {
+    letter-spacing: 0.18em;
+}
+
+section .tracking-\[0\.18em\] {
+    letter-spacing: 0.14em;
+}
+
+section .tracking-\[0\.16em\] {
+    letter-spacing: 0.13em;
+}
+
+.text-\[\#D7E2EA\]\/30 {
+    color: rgb(215 226 234 / 0.5);
+}
+
+.text-\[\#D7E2EA\]\/32,
+.text-\[\#D7E2EA\]\/35 {
+    color: rgb(215 226 234 / 0.58);
+}
+
+.text-\[\#D7E2EA\]\/38,
+.text-\[\#D7E2EA\]\/40,
+.text-\[\#D7E2EA\]\/42 {
+    color: rgb(215 226 234 / 0.62);
+}
+
+.text-\[\#D7E2EA\]\/45,
+.text-\[\#D7E2EA\]\/48,
+.text-\[\#D7E2EA\]\/50 {
+    color: rgb(215 226 234 / 0.68);
+}
+
+.text-\[\#D7E2EA\]\/52,
+.text-\[\#D7E2EA\]\/55,
+.text-\[\#D7E2EA\]\/56 {
+    color: rgb(215 226 234 / 0.72);
+}
+
+.text-\[\#D7E2EA\]\/62,
+.text-\[\#D7E2EA\]\/65,
+.text-\[\#D7E2EA\]\/68,
+.text-\[\#D7E2EA\]\/70 {
+    color: rgb(215 226 234 / 0.8);
+}
+
+@keyframes marquee-left {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+.animate-marquee-left {
+    animation: marquee-left 28s linear infinite;
+}
+
+.animate-marquee-left-slow {
+    animation: marquee-left 36s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .animate-marquee-left,
+    .animate-marquee-left-slow {
+        animation-play-state: paused;
+    }
 }

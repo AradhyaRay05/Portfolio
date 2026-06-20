@@ -1,45 +1,53 @@
-import React from 'react'
-import { FadeIn } from '../components/ui'
+import React from "react";
+import { FadeIn } from "../components/ui";
 
 interface Education {
-  degree: string
-  institution: string
-  period: string
-  detail: string
-  coursework?: string[]
+  degree: string;
+  institution: string;
+  period: string;
+  detail: string;
+  coursework?: string[];
 }
 
 const education: Education[] = [
   {
-    degree: 'B.Tech — Computer Science & Engineering',
-    institution: 'The Neotia University, Diamond Harbour, West Bengal',
-    period: '2023 – 2027',
-    detail: 'Specialization in Artificial Intelligence & Machine Learning',
-    coursework: ['Data Structures & Algorithms', 'Object-Oriented Programming', 'Machine Learning', 'Operating Systems', 'DBMS', 'Computer Networks'],
+    degree: "B.Tech in Computer Science and Engineering",
+    institution: "The Neotia University, Diamond Harbour, West Bengal",
+    period: "2023 – 2027",
+    detail:
+      "Specialization in Artificial Intelligence and Machine Learning · Current CGPA: 9.04/10",
+    coursework: [
+      "Data Structures & Algorithms",
+      "Object-Oriented Programming",
+      "Machine Learning",
+      "Operating Systems",
+      "DBMS",
+      "Computer Networks",
+    ],
   },
   {
-    degree: 'Higher Secondary (XII)',
-    institution: 'Baruipur High School, West Bengal',
-    period: '2023',
-    detail: 'West Bengal Board of Secondary Education (WBBSE) — 69.4%',
+    degree: "Higher Secondary (XII)",
+    institution: "Baruipur High School, West Bengal",
+    period: "2023",
+    detail: "West Bengal Board of Secondary Education (WBBSE)",
   },
   {
-    degree: 'Secondary (X)',
-    institution: 'Baruipur High School, West Bengal',
-    period: '2021',
-    detail: 'West Bengal Board of Primary Education (WBBPE) — 90.2%',
+    degree: "Secondary (X)",
+    institution: "Baruipur High School, West Bengal",
+    period: "2021",
+    detail: "West Bengal Board of Primary Education (WBBPE)",
   },
-]
+];
 
 const EducationSection: React.FC = () => {
   return (
-    <section className="bg-[#0C0C0C] px-5 sm:px-8 md:px-10 py-20 sm:py-24 md:py-32" id="education">
+    <section
+      className="bg-[#0C0C0C] px-5 sm:px-8 md:px-10 py-20 sm:py-24 md:py-32"
+      id="education"
+    >
       <div className="max-w-4xl mx-auto">
         <FadeIn delay={0} y={40}>
-          <h2
-            className="hero-heading font-black uppercase text-center leading-none mb-14 sm:mb-18 md:mb-24"
-            style={{ fontSize: 'clamp(3rem, 10vw, 120px)' }}
-          >
+          <h2 className="hero-heading section-heading section-heading--display mb-14 text-center uppercase sm:mb-18 md:mb-24">
             Education
           </h2>
         </FadeIn>
@@ -58,14 +66,25 @@ const EducationSection: React.FC = () => {
                   </div>
 
                   <div className="flex-1 pb-2">
-                    <span className="text-[#D7E2EA]/30 text-xs font-medium uppercase tracking-wider">{edu.period}</span>
-                    <h3 className="text-[#D7E2EA] font-semibold text-base sm:text-lg mt-1">{edu.degree}</h3>
-                    <p className="text-[#D7E2EA]/50 text-sm font-light mt-0.5">{edu.institution}</p>
-                    <p className="text-[#D7E2EA]/40 text-sm font-light mt-1">{edu.detail}</p>
+                    <span className="text-[#D7E2EA]/58 text-sm font-semibold uppercase tracking-[0.14em]">
+                      {edu.period}
+                    </span>
+                    <h3 className="text-[#D7E2EA] font-semibold text-lg sm:text-xl mt-1">
+                      {edu.degree}
+                    </h3>
+                    <p className="text-[#D7E2EA]/70 text-base font-light mt-0.5">
+                      {edu.institution}
+                    </p>
+                    <p className="text-[#D7E2EA]/68 text-base font-light mt-1">
+                      {edu.detail}
+                    </p>
                     {edu.coursework && (
                       <div className="flex flex-wrap gap-1.5 mt-3">
-                        {edu.coursework.map(c => (
-                          <span key={c} className="text-[#D7E2EA]/35 bg-[#D7E2EA]/5 text-xs px-3 py-1 rounded-full">
+                        {edu.coursework.map((c) => (
+                          <span
+                            key={c}
+                            className="text-[#D7E2EA]/72 bg-[#D7E2EA]/6 text-sm font-medium px-3.5 py-1.5 rounded-full"
+                          >
                             {c}
                           </span>
                         ))}
@@ -79,7 +98,7 @@ const EducationSection: React.FC = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default EducationSection
+export default EducationSection;

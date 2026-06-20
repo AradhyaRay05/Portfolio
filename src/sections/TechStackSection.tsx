@@ -1,193 +1,181 @@
-import React, { useState } from 'react'
-import { FadeIn } from '../components/ui'
-
-interface Skill {
-  name: string
-  icon: string
-}
+import React, { useState } from "react";
+import { FadeIn } from "../components/ui";
 
 interface Category {
-  name: string
-  color: string
-  skills: Skill[]
+  name: string;
+  summary: string;
+  skills: string[];
 }
-
-const d = 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons'
 
 const categories: Category[] = [
   {
-    name: 'Languages',
-    color: '#3776AB',
+    name: "Programming Languages",
+    summary:
+      "Core languages used across coursework, internships, ML notebooks, and web apps.",
+    skills: ["Python", "JavaScript", "Java", "C", "HTML5", "CSS3"],
+  },
+  {
+    name: "AI & Machine Learning",
+    summary:
+      "Model training, evaluation, NLP experimentation, and deployed prediction apps.",
     skills: [
-      { name: 'Python', icon: `${d}/python/python-original.svg` },
-      { name: 'JavaScript', icon: `${d}/javascript/javascript-original.svg` },
-      { name: 'Java', icon: `${d}/java/java-original.svg` },
-      { name: 'C', icon: `${d}/c/c-original.svg` },
-      { name: 'HTML5', icon: `${d}/html5/html5-original.svg` },
-      { name: 'CSS3', icon: `${d}/css3/css3-original.svg` },
+      "Machine Learning",
+      "Deep Learning",
+      "NLP",
+      "Transformers",
+      "TensorFlow",
+      "Scikit-learn",
+      "Hugging Face",
+      "CatBoost",
+      "Decision Trees",
+      "Logistic Regression",
     ],
   },
   {
-    name: 'AI & Machine Learning',
-    color: '#FF6F00',
+    name: "Data Science",
+    summary:
+      "Cleaning, feature engineering, visualization, and analytical storytelling.",
     skills: [
-      { name: 'TensorFlow', icon: `${d}/tensorflow/tensorflow-original.svg` },
-      { name: 'Scikit-learn', icon: `${d}/scikitlearn/scikitlearn-original.svg` },
-      { name: 'Hugging Face', icon: `${d}/python/python-original.svg` },
-      { name: 'NLP', icon: `${d}/python/python-original.svg` },
-      { name: 'Deep Learning', icon: `${d}/tensorflow/tensorflow-original.svg` },
+      "Pandas",
+      "NumPy",
+      "Matplotlib",
+      "Seaborn",
+      "Jupyter Notebook",
+      "Excel",
+      "Data Validation",
+      "Predictive Analysis",
     ],
   },
   {
-    name: 'Data Science',
-    color: '#150458',
+    name: "Web Development",
+    summary:
+      "Frontend and backend tooling for full-stack products and deployed demos.",
     skills: [
-      { name: 'Pandas', icon: `${d}/pandas/pandas-original.svg` },
-      { name: 'NumPy', icon: `${d}/numpy/numpy-original.svg` },
-      { name: 'Matplotlib', icon: `${d}/matplotlib/matplotlib-original.svg` },
-      { name: 'Seaborn', icon: `${d}/python/python-original.svg` },
-      { name: 'Jupyter', icon: `${d}/jupyter/jupyter-original.svg` },
+      "React.js",
+      "Node.js",
+      "Express.js",
+      "REST APIs",
+      "Flask",
+      "Streamlit",
+      "Tailwind CSS",
+      "AngularJS",
+      "Socket.io",
+      "WebRTC",
     ],
   },
   {
-    name: 'Web Development',
-    color: '#61DAFB',
+    name: "Databases",
+    summary: "Persistent storage, querying, and application data modeling.",
+    skills: ["MongoDB", "MySQL", "SQL", "SQL Workbench"],
+  },
+  {
+    name: "Cloud & Tools",
+    summary:
+      "Development environments, deployment foundations, and system workflows.",
+    skills: ["AWS", "Linux", "Vim", "VS Code", "Docker", "Coursera Cloud Labs"],
+  },
+  {
+    name: "Cyber Security",
+    summary:
+      "VAPT fundamentals from internship practice and security-aware engineering.",
     skills: [
-      { name: 'React', icon: `${d}/react/react-original.svg` },
-      { name: 'Node.js', icon: `${d}/nodejs/nodejs-original.svg` },
-      { name: 'Express', icon: `${d}/express/express-original.svg` },
-      { name: 'Flask', icon: `${d}/flask/flask-original.svg` },
-      { name: 'Next.js', icon: `${d}/nextjs/nextjs-original.svg` },
-      { name: 'Streamlit', icon: `${d}/streamlit/streamlit-original.svg` },
-      { name: 'Tailwind', icon: `${d}/tailwindcss/tailwindcss-original.svg` },
+      "Nmap",
+      "Burp Suite",
+      "Wireshark",
+      "SQLmap",
+      "Metasploit",
+      "OWASP",
+      "OSINT",
+      "XSS Basics",
     ],
   },
   {
-    name: 'Databases',
-    color: '#47A248',
+    name: "Version Control",
+    summary:
+      "Public repositories, collaboration workflows, and open-source exploration.",
     skills: [
-      { name: 'MongoDB', icon: `${d}/mongodb/mongodb-original.svg` },
-      { name: 'MySQL', icon: `${d}/mysql/mysql-original.svg` },
+      "Git",
+      "GitHub",
+      "Pull Requests",
+      "Issues",
+      "Repository Documentation",
     ],
   },
-  {
-    name: 'Cloud & Tools',
-    color: '#FF9900',
-    skills: [
-      { name: 'AWS', icon: `${d}/amazonwebservices/amazonwebservices-plain-wordmark.svg` },
-      { name: 'Docker', icon: `${d}/docker/docker-original.svg` },
-      { name: 'Linux', icon: `${d}/linux/linux-original.svg` },
-      { name: 'VS Code', icon: `${d}/vscode/vscode-original.svg` },
-      { name: 'Vim', icon: `${d}/vim/vim-original.svg` },
-    ],
-  },
-  {
-    name: 'Cyber Security',
-    color: '#E53E3E',
-    skills: [
-      { name: 'Nmap', icon: `${d}/linux/linux-original.svg` },
-      { name: 'Burp Suite', icon: `${d}/linux/linux-original.svg` },
-      { name: 'Wireshark', icon: `${d}/linux/linux-original.svg` },
-      { name: 'SQLmap', icon: `${d}/linux/linux-original.svg` },
-    ],
-  },
-  {
-    name: 'Version Control',
-    color: '#F05032',
-    skills: [
-      { name: 'Git', icon: `${d}/git/git-original.svg` },
-      { name: 'GitHub', icon: `${d}/github/github-original.svg` },
-    ],
-  },
-]
+];
 
 const TechStackSection: React.FC = () => {
-  const [activeCategory, setActiveCategory] = useState<string | null>(null)
-
-  const filtered = activeCategory
-    ? categories.filter((c) => c.name === activeCategory)
-    : categories
+  const [activeCategory, setActiveCategory] = useState("All");
+  const visible =
+    activeCategory === "All"
+      ? categories
+      : categories.filter((cat) => cat.name === activeCategory);
 
   return (
-    <section className="bg-[#0C0C0C] px-5 sm:px-8 md:px-10 py-20 sm:py-24 md:py-32" id="skills">
-      <div className="max-w-6xl mx-auto">
+    <section
+      className="bg-[#0C0C0C] px-5 py-20 sm:px-8 sm:py-24 md:px-10 md:py-32"
+      id="skills"
+    >
+      <div className="mx-auto max-w-6xl">
         <FadeIn delay={0} y={40}>
-          <h2
-            className="hero-heading font-black uppercase text-center leading-none mb-6 sm:mb-8"
-            style={{ fontSize: 'clamp(3rem, 10vw, 120px)' }}
-          >
+          <p className="mb-4 text-center text-sm font-semibold uppercase tracking-[0.22em] text-[#D7E2EA]/58">
+            Capabilities
+          </p>
+          <h2 className="hero-heading section-heading section-heading--display text-center uppercase">
             Tech Stack
           </h2>
+          <p className="mx-auto mt-5 max-w-2xl text-center text-base font-light leading-relaxed text-[#D7E2EA]/68">
+            Organized by how I actually use the tools: building models, cleaning
+            data, shipping web apps, and collaborating in public.
+          </p>
         </FadeIn>
 
-        {/* Category Filter */}
         <FadeIn delay={0.1} y={20}>
-          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-12 sm:mb-16">
-            <button
-              onClick={() => setActiveCategory(null)}
-              className={`rounded-full px-4 py-1.5 text-xs sm:text-sm font-medium uppercase tracking-wider transition-all duration-200 cursor-pointer
-                ${!activeCategory
-                  ? 'bg-[#D7E2EA] text-[#0C0C0C]'
-                  : 'border border-[#D7E2EA]/20 text-[#D7E2EA]/60 hover:text-[#D7E2EA] hover:border-[#D7E2EA]/50'
-                }`}
-            >
-              All
-            </button>
-            {categories.map((cat) => (
+          <div className="mt-10 flex gap-2 overflow-x-auto pb-2 sm:flex-wrap sm:justify-center sm:overflow-visible">
+            {["All", ...categories.map((cat) => cat.name)].map((tab) => (
               <button
-                key={cat.name}
-                onClick={() => setActiveCategory(activeCategory === cat.name ? null : cat.name)}
-                className={`rounded-full px-4 py-1.5 text-xs sm:text-sm font-medium uppercase tracking-wider transition-all duration-200 cursor-pointer
-                  ${activeCategory === cat.name
-                    ? 'bg-[#D7E2EA] text-[#0C0C0C]'
-                    : 'border border-[#D7E2EA]/20 text-[#D7E2EA]/60 hover:text-[#D7E2EA] hover:border-[#D7E2EA]/50'
-                  }`}
+                key={tab}
+                onClick={() => setActiveCategory(tab)}
+                className={`whitespace-nowrap rounded-full px-4 py-2.5 text-sm font-semibold uppercase tracking-[0.12em] transition ${
+                  activeCategory === tab
+                    ? "bg-[#D7E2EA] text-[#0C0C0C]"
+                    : "border border-[#D7E2EA]/15 text-[#D7E2EA]/55 hover:border-[#D7E2EA]/40 hover:text-[#D7E2EA]"
+                }`}
               >
-                {cat.name}
+                {tab}
               </button>
             ))}
           </div>
         </FadeIn>
 
-        {/* Categories Grid */}
-        <div className="space-y-10 sm:space-y-12">
-          {filtered.map((cat, ci) => (
-            <FadeIn key={cat.name} delay={ci * 0.05} y={20}>
-              <div>
-                <div className="flex items-center gap-3 mb-5">
-                  <div className="w-3 h-3 rounded-full" style={{ background: cat.color }} />
-                  <h3 className="text-[#D7E2EA] font-semibold uppercase tracking-wider text-sm sm:text-base">
+        <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-2">
+          {visible.map((cat, i) => (
+            <FadeIn key={cat.name} delay={i * 0.04} y={20}>
+              <article className="h-full rounded-3xl border border-[#D7E2EA]/10 bg-[#D7E2EA]/[0.035] p-5 transition hover:border-[#D7E2EA]/25 hover:bg-[#D7E2EA]/[0.055] sm:p-6">
+                <div className="mb-5">
+                  <h3 className="text-lg font-semibold text-[#D7E2EA]">
                     {cat.name}
                   </h3>
-                  <div className="flex-1 h-px bg-[#D7E2EA]/10" />
+                  <p className="mt-2 text-sm font-light leading-relaxed text-[#D7E2EA]/45">
+                    {cat.summary}
+                  </p>
                 </div>
-                <div className="flex flex-wrap gap-3">
+                <div className="flex flex-wrap gap-2">
                   {cat.skills.map((skill) => (
-                    <div
-                      key={skill.name}
-                      className="flex items-center gap-2.5 bg-[#D7E2EA]/5 border border-[#D7E2EA]/10
-                        rounded-xl px-4 py-2.5 hover:border-[#D7E2EA]/30 hover:bg-[#D7E2EA]/8
-                        transition-all duration-200 group"
+                    <span
+                      key={skill}
+                      className="rounded-full border border-[#D7E2EA]/12 bg-[#0C0C0C]/35 px-3.5 py-2 text-[0.95rem] text-[#D7E2EA]/78"
                     >
-                      <img
-                        src={skill.icon}
-                        alt={skill.name}
-                        className="w-5 h-5 sm:w-6 sm:h-6 opacity-70 group-hover:opacity-100 transition-opacity"
-                        loading="lazy"
-                      />
-                      <span className="text-[#D7E2EA]/70 text-sm font-medium group-hover:text-[#D7E2EA] transition-colors">
-                        {skill.name}
-                      </span>
-                    </div>
+                      {skill}
+                    </span>
                   ))}
                 </div>
-              </div>
+              </article>
             </FadeIn>
           ))}
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default TechStackSection
+export default TechStackSection;
